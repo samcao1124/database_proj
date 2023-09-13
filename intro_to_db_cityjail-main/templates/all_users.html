@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}
+  All Users - ZzzCrimeCheck
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+      <h2>User Management</h2>
+      <div class="table-container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flashes">
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        <p><a href="{{ url_for('add_user') }}">Add a New User</a></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+                <td>
+                  <a href="{{ url_for('update_user', user_id=user[0]) }}" class="btn btn-warning">Update</a>
+                  <a href="{{ url_for('delete_user', user_id=user[0]) }}" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+{% endblock %}

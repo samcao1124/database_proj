@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Update {{ data_type[:-1].capitalize() }} - ZzzCrimeCheck
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <h2>Update {{ data_type.capitalize() }}</h2>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <form method="post" action="{{ url_for('update_entry', data_type=data_type, id=entry[0], id2=entry[1] if data_type == 'crime_officer' else None) }}">
+        {% if data_type == 'criminal' %}
+
+          <label for="l_name">Last Name:</label>
+          <input type="text" id="l_name" name="l_name" value="{{ entry[1] }}" required>
+
+          <label for="f_name">First Name:</label>
+          <input type="text" id="f_name" name="f_name" value="{{ entry[2] }}" required>
+
+          <label for="street">Street:</label>
+          <input type="text" id="street" name="street" value="{{ entry[3] }}" required>
+
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" value="{{ entry[4] }}" required>
+
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" value="{{ entry[5] }}" required>
+
+          <label for="zip">Zip:</label>
+          <input type="text" id="zip" name="zip" value="{{ entry[6] }}" required>
+
+          <label for="phone_num">Phone Number:</label>
+          <input type="text" id="phone_num" name="phone_num" value="{{ entry[7] }}" required>
+
+          <label for="v_status" class="radio-label">V Status:</label>
+          <div class="radio-options">
+            <input type="radio" id="v_status_yes" name="v_status" value="Y" {% if entry[8] == 'Y' %}checked{% endif %}>
+            <label for="v_status_yes">Yes</label>
+            <input type="radio" id="v_status_no" name="v_status" value="N" {% if entry[8] == 'N' %}checked{% endif %}>
+            <label for="v_status_no">No</label>
+          </div>
+
+          <label for="p_status" class="radio-label">P Status:</label>
+          <div class="radio-options">
+            <input type="radio" id="p_status_yes" name="p_status" value="Y" {% if entry[9] == 'Y' %}checked{% endif %}>
+            <label for="p_status_yes">Yes</label>
+            <input type="radio" id="p_status_no" name="p_status" value="N" {% if entry[9] == 'N' %}checked{% endif %}>
+            <label for="p_status_no">No</label>
+          </div>
+          {% endif %}
+
+          {% if data_type == 'officer' %}
+          <label for="l_name">Last Name:</label>
+          <input type="text" id="l_name" name="l_name" value="{{ entry[1] }}" required>
+
+          <label for="f_name">First Name:</label>
+          <input type="text" id="f_name" name="f_name" value="{{ entry[2] }}" required>
+          <label for="precinct">Precinct:</label>
+          <input type="text" id="precinct" name="precinct" value="{{ entry[3] }}" required>
+          <label for="badge">Badge:</label>
+          <input type="text" id="badge" name="badge" value="{{ entry[4] }}" required>
+  
+          <label for="phone_num">Phone Number:</label>
+          <input type="text" id="phone_num" name="phone_num" value="{{ entry[5] }}" required>
+  
+          <label for="status" class="radio-label">Status:</label>
+          <div class="radio-options">
+            <input type="radio" id="status_active" name="status" value="A" {% if entry[6] == 'A' %}checked{% endif %}>
+            <label for="status_active">Active</label>
+            <input type="radio" id="status_inactive" name="status" value="I" {% if entry[6] == 'I' %}checked{% endif %}>
+            <label for="status_inactive">Inactive</label>
+          </div>
+          {% endif %}
+          {% if data_type == 'prob_officer' %}
+          <label for="l_name">Last Name:</label>
+          <input type="text" id="l_name" name="l_name" value="{{ entry[1] }}" required>
+
+          <label for="f_name">First Name:</label>
+          <input type="text" id="f_name" name="f_name" value="{{ entry[2] }}" required>
+
+          <label for="street">Street:</label>
+          <input type="text" id="street" name="street" value="{{ entry[3] }}" required>
+
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" value="{{ entry[4] }}" required>
+
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" value="{{ entry[5] }}" required>
+
+          <label for="zip">Zip:</label>
+          <input type="text" id="zip" name="zip" value="{{ entry[6] }}" required>
+
+          <label for="phone_num">Phone Number:</label>
+          <input type="text" id="phone_num" name="phone_num" value="{{ entry[7] }}" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="{{ entry[8] }}" required>
+
+          <label for="status" class="radio-label">Status:</label>
+          <div class="radio-options">
+            <input type="radio" id="status_active" name="status" value="A" {% if entry[9] == 'A' %}checked{% endif %}>
+            <label for="status_active">Active</label>
+            <input type="radio" id="status_inactive" name="status" value="I" {% if entry[9] == 'I' %}checked{% endif %}>
+            <label for="status_inactive">Inactive</label>
+          </div>
+          {% endif %}
+          {% if data_type == 'crime_code' %}
+
+          <label for="code_description">Code Description:</label>
+          <input type="text" id="code_description" name="code_description" value="{{ entry[1] }}" required>
+          {% endif %}
+          
+          {% if data_type == 'crime_officer' %}
+          <label for="crime_id">Crime ID:</label>
+          <input type="text" id="crime_id" name="crime_id" value="{{ entry[0] }}" required>
+
+          <label for="officer_id">Officer ID:</label>
+          <input type="text" id="officer_id" name="officer_id" value="{{ entry[1] }}" required>
+          {% endif %}
+          {% if data_type == 'crime' %}
+          <label for="criminal_id">Criminal ID:</label>
+          <input type="text" id="criminal_id" name="criminal_id" value="{{ entry[1] }}" required>
+
+          <label for="classification">Classification:</label>
+          <select id="classification" name="classification" required>
+            <option value="F" {% if entry[2] == 'F' %}selected{% endif %}>F</option>
+            <option value="M" {% if entry[2] == 'M' %}selected{% endif %}>M</option>
+            <option value="O" {% if entry[2] == 'O' %}selected{% endif %}>O</option>
+            <option value="U" {% if entry[2] == 'U' %}selected{% endif %}>U</option>
+          </select>
+
+          <label for="date_charged">Date Charged:</label>
+          <input type="date" id="date_charged" name="date_charged" value="{{ entry[3] }}" required>
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+            <option value="CL" {% if entry[4] == 'CL' %}selected{% endif %}>CL</option>
+            <option value="CA" {% if entry[4] == 'CA' %}selected{% endif %}>CA</option>
+            <option value="IA" {% if entry[4] == 'IA' %}selected{% endif %}>IA</option>
+          </select>
+          
+          <label for="hearing_date">Hearing Date:</label>
+          <input type="date" id="hearing_date" name="hearing_date" value="{{ entry[5] }}">
+          
+          <label for="appeal_cutoff_date">Appeal Cutoff Date:</label>
+          <input type="date" id="appeal_cutoff_date" name="appeal_cutoff_date" value="{{ entry[6] }}">
+    
+          {% endif %}
+          {% if data_type == 'appeal' %}       
+          <label for="crime_id">Crime ID:</label>
+          <input type="text" id="crime_id" name="crime_id" value="{{ entry[1] }}" required>
+        
+          <label for="filing_date">Filing Date:</label>
+          <input type="date" id="filing_date" name="filing_date" value="{{ entry[2] }}" required>
+        
+          <label for="hearing_date">Hearing Date:</label>
+          <input type="date" id="hearing_date" name="hearing_date" value="{{ entry[3] }}">
+        
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+            <option value="P" {% if entry[4] == 'P' %}selected{% endif %}>P</option>
+            <option value="A" {% if entry[4] == 'A' %}selected{% endif %}>A</option>
+            <option value="D" {% if entry[4] == 'D' %}selected{% endif %}>D</option>
+          </select>
+          {% endif %}
+          {% if data_type == 'criminal_charges' %}      
+          <label for="crime_id">Crime ID:</label>
+          <input type="text" id="crime_id" name="crime_id" value="{{ entry[1] }}" required>
+        
+          <label for="crime_code">Crime Code:</label>
+          <input type="text" id="crime_code" name="crime_code" value="{{ entry[2] }}" required>
+        
+          <label for="charge_status">Charge Status:</label>
+          <select id="charge_status" name="charge_status" required>
+              <option value="PD" {% if entry[3] == 'PD' %}selected{% endif %}>PD</option>
+              <option value="GL" {% if entry[3] == 'GL' %}selected{% endif %}>GL</option>
+              <option value="NG" {% if entry[3] == 'NG' %}selected{% endif %}>NG</option>
+          </select>
+        
+          <label for="fine_amount">Fine Amount:</label>
+          <input type="number" step="0.01" id="fine_amount" name="fine_amount" value="{{ entry[4] }}" required>
+        
+          <label for="court_fee">Court Fee:</label>
+          <input type="number" step="0.01" id="court_fee" name="court_fee" value="{{ entry[5] }}" required>
+        
+          <label for="amount_paid">Amount Paid:</label>
+          <input type="number" step="0.01" id="amount_paid" name="amount_paid" value="{{ entry[6] }}" required>
+        
+          <label for="pay_due_date">Pay Due Date:</label>
+          <input type="date" id="pay_due_date" name="pay_due_date" value="{{ entry[7] }}" required>
+          {% endif %}
+
+          {% if data_type == 'aliases' %}
+          <label for="alias_id">Aliases ID:</label>
+          <input type="text" id="alias_id" name="alias_id" value="{{ entry[0] }}" required>
+
+          <label for="criminal_id">Criminal ID:</label>
+          <input type="text" id="criminal_id" name="criminal_id" value="{{ entry[1] }}" required>
+
+          <label for="alias">Alias:</label>
+          <input type="text" id="alias" name="alias" value="{{ entry[2] }}" required>
+          {% endif %}
+          {% if data_type == 'sentences' %}
+          <label for="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" value="{{ entry[1] }}" required>
+
+          <label for="end_date">End Date:</label>
+          <input type="date" id="end_date" name="end_date" value="{{ entry[2] }}" required>
+
+          <label for="num_violations">Number of Violations:</label>
+          <input type="number" id="num_violations" name="num_violations" value="{{ entry[3] }}" required>
+
+          <label for="type_of_sentence">Type of Sentence:</label>
+          <select id="type_of_sentence" name="type_of_sentence" required>
+              <option value="J" {% if entry[4] == 'J' %}selected{% endif %}>J</option>
+              <option value="H" {% if entry[4] == 'H' %}selected{% endif %}>H</option>
+              <option value="P" {% if entry[4] == 'P' %}selected{% endif %}>P</option>
+          </select>
+
+          <label for="criminal_id">Criminal ID:</label>
+          <input type="text" id="criminal_id" name="criminal_id" value="{{ entry[5] }}" required>
+
+          <label for="prob_id">Probation Officer ID:</label>
+          <input type="text" id="prob_id" name="prob_id" value="{{ entry[6] }}" required>
+      {% endif %}
+
+
+          <input type="submit" value="Update {{ data_type[:-1].capitalize() }}">
+      </form>
+    </div>
+{% endblock %}    

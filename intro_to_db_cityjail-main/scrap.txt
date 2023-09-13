@@ -1,0 +1,10 @@
+<td>{{ criminal[0] }}</td>
+<td>{{ criminal[1] }}</td>
+<td>{{ criminal[2] }}</td>
+<td>{{ criminal[3] }}</td>
+<td>{{ criminal[4] }}</td>
+<td>{{ criminal[5] }}</td>
+<td>{{ criminal[6] }}</td>
+<td>{{ criminal[7] }}</td>
+<td>{{ criminal[8] }}</td>
+<td>{{ criminal[9] }}</td>

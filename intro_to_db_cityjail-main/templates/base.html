@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}ZzzCrimeCheck{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="topnav">
+      <div class="menu-links-container">
+        <a href="{{ url_for('index') }}">Home</a>
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('dashboard') }}">Admin Dashboard</a>
+        {% endif %}
+        {% if current_user.role == 'user' %}
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        {% endif %}
+        <a href="{{ url_for('about') }}">About Us</a>
+      </div>
+      <div class="auth-links-container">
+        {% if current_user.is_authenticated %}
+          <a href="{{ url_for('logout') }}" class="auth-link logout-link">Logout</a>
+        {% else %}
+          <a href="{{ url_for('login') }}" class="auth-link login-link">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

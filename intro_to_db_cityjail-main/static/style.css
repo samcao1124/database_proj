@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Sofia', sans-serif;
+  margin:0;
+  padding:0;
+  background: #f6f7f8;
+  background: linear-gradient(#ADD8E6,#EDCDC2);
+  height:100%;
+}
+
+.topnav {
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  padding: 0 20px;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f6f7f895;
+  z-index: 999;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-links-container {
+  display: flex;
+  align-items: center;
+}
+
+.auth-links-container {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+
+
+
+.topnav a {
+  float: left;
+  margin-left: 3px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: #fae6f656;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+
+.topnav a.active {
+  background-color: #fae6f656;
+  color: black;
+}
+
+
+.title {
+  position:relative;
+  top:0px;
+  font-family:"Sofia", sans-serif;
+  font-size: 80px;
+}
+
+.container {
+  margin-top: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.table-container {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  display: block;
+  font-size: 32px;
+}
+
+
+
+.container1 {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+img {
+  max-width: 100%;
+  max-height:100%;
+}
+
+.subhead {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  font-family:"Sofia", sans-serif;
+  font-size: 40px;
+}
+
+.content {
+  position: relative;
+  width:100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  /*
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  */
+}
+
+.logout-link {
+  order: 4;
+}
+
+
+.container2 {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  width: 100%;
+  /*margin-right: 100px;*/
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*
+.text {
+  margin-left: 100px
+}
+*/
+
+.bolded {
+  font-weight: bold;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+}
+
+form input[type="submit"] {
+  grid-column: span 2;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.radio-label {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+}
+
+.radio-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* body {
+  font-family: 'Sofia', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+} */
+
+.container_search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 50px);
+  padding: 20px;
+}
+
+h2 {
+  font-family: 'Tangerine', cursive;
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+form_search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 350px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.login-form input[type="text"], .login-form input[type="password"] {
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+input[type="submit"]:hover {
+  background-color: #f1c40f;
+}
+
+
+.login-page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-container {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  width: 350px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.login-page .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-page .form-control {
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+
+}
+.login-page .login-button {
+  background-color: #3897f0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.flashes li {
+  background-color: #f0a5a0;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.dash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 50px);
+  padding: 20px;
+}
+
+.dashboard-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.dashboard-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dashboard-item:hover {
+  background-color: #f1c40f;
+}
+
+.dashboard-item h3 {
+  color: white;
+  font-size: 24px;
+  margin-top: 10px;
+}
+

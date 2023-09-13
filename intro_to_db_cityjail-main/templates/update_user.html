@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Update User - ZzzCrimeCheck
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <h2>Update User</h2>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <form method="post" action="{{ url_for('update_user', user_id=user[0]) }}">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" value="{{ user[1] }}" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" value="{{ user[2] }}" required>
+
+          <label for="role">Role:</label>
+          <select id="role" name="role" required>
+            <option value="admin" {% if user[3] == 'admin' %}selected{% endif %}>Admin</option>
+            <option value="user" {% if user[3] == 'user' %}selected{% endif %}>User</option>
+          </select>
+
+          <input type="submit" value="Update User">
+      </form>
+  </div>
+{% endblock %}

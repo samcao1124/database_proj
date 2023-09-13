@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Admin Dashboard - ZzzCrimeCheck
+{% endblock %}
+{% block content %}
+    <div class="dash-container">
+      {% if current_user.role == 'admin' %}
+      <h2>Admin Dashboard</h2>
+      {% else %}
+      <h2>Dashboard</h2>
+      {% endif %}
+      <div class="dashboard-menu">
+        
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('all_user') }}" class="dashboard-item">
+            <h3>User Management</h3>       
+          </a>
+        {% endif %}
+        <a href="{{ url_for('search') }}" class="dashboard-item">
+          <h3>Search</h3>
+        </a>
+        <a href="{{ url_for('display', data_type='criminal') }}" class="dashboard-item">
+        {% if current_user.role == 'admin' %}
+          <h3>Manage Criminals</h3>
+        {% elif current_user.role == 'user' %}
+          <h3>View all Criminals</h3>
+        {% endif %}
+
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='officer') }}" class="dashboard-item">
+          <h3>Manage Officers</h3>
+        {% endif %}
+
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='prob_officer') }}" class="dashboard-item">
+          <h3>Manage Probation Officers</h3>
+        {% endif %}
+
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='crime_code') }}" class="dashboard-item">
+          <h3>Manage Crime Codes</h3>
+        {% endif %}
+
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='crime_officer') }}" class="dashboard-item">
+          <h3>Manage Crime Officer</h3>
+        {% endif %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='crime') }}" class="dashboard-item">
+          <h3>Manage Crime</h3>
+        {% endif %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='appeal') }}" class="dashboard-item">
+          <h3>Manage Appeal</h3>
+        {% endif %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='criminal_charges') }}" class="dashboard-item">
+          <h3>Manage Charges</h3>
+        {% endif %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='aliases') }}" class="dashboard-item">
+          <h3>Manage Alias</h3>
+        {% endif %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('display', data_type='sentences') }}" class="dashboard-item">
+          <h3>Manage Sentence</h3>
+        {% endif %}
+        </a>
+      </div>
+    </div>
+{% endblock %}
